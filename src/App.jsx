@@ -1,8 +1,14 @@
+import {BrowserRouter , Route , Routes } from "react-router-dom"
 function App() {
 return (
-  <div className="bg-black">
-    Hello World
-  </div>
+ <BrowserRouter>
+ <Routes>
+  <Route path="/signup" element={<SignUp />} />
+  <Route path="/signin" element={<SignIn />} />
+  <Route path="/dashboard" element={<DashBoard />} />
+  <Route path="/send" element={<SendMoney />} />
+ </Routes>
+ </BrowserRouter>
 )
 
 }
