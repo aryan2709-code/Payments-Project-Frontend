@@ -1,5 +1,5 @@
 export const AppBar = () => {
-    return <div className=" shadow h-14 flex justify-between">
+    return <div className=" shadow h-14 flex justify-between mb-1">
         <div className="flex font-semibold flex-col justify-center h-full ml-4">
             PayTM App
         </div>

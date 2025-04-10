@@ -3,9 +3,9 @@ import { Balance } from "../components/BalanceComponent.jsx"
 import { Users } from "../components/UsersComponent.jsx"
 
 export const DashBoard = () => {
-    return <div>
+    return <div className="p-3">
         <AppBar />
-        <Balance />
+        <Balance value={"30000"} />
         <Users />
     </div>
 }
