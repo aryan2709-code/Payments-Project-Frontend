@@ -7,6 +7,7 @@ export const SendMoney = () => {
     const id = searchParams.get("id");
     const name = searchParams.get("name");
     const inputref = useRef(null);
+    const pinref = useRef(null);
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -18,10 +19,16 @@ export const SendMoney = () => {
             setMessage("");
 
             const amount = inputref.current.value;
+            const pin = pinref.current.value;
             const to = id;
 
             if (!amount) {
                 setError("Enter The Amount Please");
+                return;
+            }
+            if(!pin)
+            {
+                setError("Enter the payment pin");
                 return;
             }
 
@@ -30,6 +37,7 @@ export const SendMoney = () => {
                 {
                     amount: amount,
                     to: to,
+                    pin : pin
                 },
                 {
                     headers: {
@@ -81,6 +89,19 @@ export const SendMoney = () => {
                                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
                                     id="amount"
                                     placeholder="Enter amount"
+                                />
+                                 <label
+                                    className="text-sm font-medium leading-none"
+                                    htmlFor="amount"
+                                >
+                                    Payment Pin
+                                </label>
+                                <input
+                                    ref={pinref}
+                                    type="text"
+                                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                                    id="amount"
+                                    placeholder="Enter pin"
                                 />
                             </div>
 

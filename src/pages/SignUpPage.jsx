@@ -13,15 +13,16 @@ export function SignUpPage() {
   const [username  , setUsername] = useState("");
   const [password , setPassword] = useState("");
   const [error , setError] = useState("");
+  const [pin , setPin] = useState("");
   const [message , setMessage ] = useState("");
   const navigate = useNavigate();
   // Moving the backend hitting logic to a separate function in order to ensure better modularity
   const signup = async() => {
     try{
         
-        if(!username || !password || !firstName || !lastName)
+        if(!username || !password || !firstName || !lastName || !pin)
         {
-             setError("One of Required Entries is Missing");
+             setError("One or more of required entries is missing");
              return;
         }
 
@@ -29,7 +30,8 @@ export function SignUpPage() {
             firstName : firstName,
             lastName : lastName,
             password : password,
-            username : username
+            username : username,
+            pin : pin
         } )
          // If the control still stays here , it means that the request we made is successful 
          setMessage("User Signed Up Successfully!");
@@ -40,6 +42,7 @@ export function SignUpPage() {
          setLastName("");
          setPassword("");
          setUsername("");
+         setPin("")
 
          // Navigate the user to sign in page
          // Trying to add a setTimeout here , so that the user is able to see the message on the screen
@@ -87,6 +90,7 @@ export function SignUpPage() {
                 <InputBox onChange = {e => {setLastName(e.target.value)} } placeholder={"Sharma"} label={"Last Name"} />
                 <InputBox onChange = {e => {setUsername(e.target.value)}} placeholder={"aryan@gmail.com"} label={"Username"} />
                 <InputBox onChange = { e => {setPassword(e.target.value)}} placeholder={"123456"} label={"Password"} />
+                <InputBox onChange= {e => {setPin(e.target.value)}} placeholder={"Add a four digit pin."} label={"Payment Pin"} />
                 <div className="pt-4">
                     <Button onPress = {signup} label={"Sign Up"} />
                 </div>
