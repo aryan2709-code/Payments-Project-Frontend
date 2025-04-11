@@ -17,18 +17,6 @@ export const DashBoard = () => {
         })
     },[] )
 
-    useEffect( () => {
-        axios.get("http://localhost:3000/api/v1/account/balance" , {
-            headers : {
-                Authorization : localStorage.getItem("token")
-            }
-        } ).then(response => {
-            setBalance(response.data.balance)
-        })
-    },[balance] )
-
-    
-    
 
     return <div className="p-3">
         <AppBar />
