@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button } from "./Button.jsx";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 export const Users = () => {
     const [users , setUsers] = useState([]);
     const [filter , setFilter] = useState("");
@@ -51,6 +52,7 @@ export const Users = () => {
 
 function User({user})
 {
+    const navigate = useNavigate();
     return <div className="flex justify-between gap-8 items-center w-full p-2 ">
         <div className="flex items-center">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
@@ -66,7 +68,9 @@ function User({user})
         </div>
 
         <div className="flex flex-col justify-center h-full">
-            <Button label={"Send Money"} />
+            <Button onPress={() => {
+               navigate("/send?id=" + user._id + "&name=" + user.firstName);
+            }} label={"Send Money"} />
         </div>
     </div>
 
