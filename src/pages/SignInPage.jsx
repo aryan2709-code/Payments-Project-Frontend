@@ -51,15 +51,7 @@ export const SignInPage = () => {
         // handle the different possible error responses
         if(err.response)
         {
-            switch(err.response.status)
-            {
-                case 411:
-                    setError(err.response.data.errors[0]?.message || "Invalid Input")
-                    break;
-                default :
-                    setError("Something went wrong.")
-
-            }
+            setError(err.response.data.message)
         }
         else
         {
