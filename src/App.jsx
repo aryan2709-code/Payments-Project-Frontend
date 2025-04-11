@@ -3,10 +3,12 @@ import { SignUpPage } from "./pages/SignUpPage.jsx"
 import { SignInPage } from "./pages/SignInPage.jsx"
 import { DashBoard } from "./pages/Dashboard.jsx"
 import { SendMoney } from "./pages/SendMoney.jsx"
+import { LandingPage } from "./pages/LandingPage.jsx"
 function App() {
 return (
  <BrowserRouter>
  <Routes>
+<Route path="/" element = {<LandingPage />} />
  <Route path="/signup" element={<SignUpPage />} />
  <Route path = "/signin" element = {<SignInPage />} />
  <Route path = "/dashboard" element = {<DashBoard />} />
