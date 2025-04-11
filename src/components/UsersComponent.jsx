@@ -41,8 +41,8 @@ export const Users = () => {
         }} type="text" placeholder="Search Users..." className="w-52 px-2 py-1 border rounded border-slate-200"></input>
     </div>
     <div className="flex justify-center">
-    <div className="border w-fit flex flex-col justify-center " >
-        {users.map(user => <User user = {user}/> )}
+    <div className="border w-fit flex flex-col " >
+        {users.map(user => <User key = {user._id} user = {user}/> )}
     </div>
     </div>
    
@@ -51,7 +51,7 @@ export const Users = () => {
 
 function User({user})
 {
-    return <div className="flex justify-center gap-8 items-center w-fit p-2 ">
+    return <div className="flex justify-between gap-8 items-center w-full p-2 ">
         <div className="flex items-center">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
